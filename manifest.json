@@ -5,7 +5,7 @@
   "version": "1.0",
   "homepage_url": "https://github.com/workeffortwaste/doom-scroller",
   "icons": {
-    "32": "icon.jpg"
+    "32": "webext/icon.jpg"
   },
 
   "content_scripts": [
@@ -22,5 +22,13 @@
 
   "web_accessible_resources": [
     "doom-res/*"
-  ]
+  ],
+
+  "permissions": [
+    "storage"
+  ],
+
+  "options_ui": {
+      "page": "webext/options.html"
+  }
 }

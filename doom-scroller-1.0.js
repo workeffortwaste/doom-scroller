@@ -190,6 +190,21 @@ doomScroller.start = function () {
   return function () {
   }
 }
-if (doomScroller.autoStart !== false) {
+if (chrome || browser) {
+  const getFromStorage = (keys) => {
+    if (chrome.storage) {
+      return new Promise((resolve, reject) => chrome.storage.local.get(keys, resolve))
+    } else {
+      return browser.storage.local.get(keys)
+    }
+  }
+  getFromStorage()
+    .then(({sites}) => {
+      const siteList = sites.split('\n');
+      if (siteList.includes(window.location.hostname)) {
+        doomScroller.start()
+      }
+    })
+} else if (doomScroller.autoStart !== false) {
   doomScroller.start()
 }
