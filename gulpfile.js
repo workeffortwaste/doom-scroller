@@ -24,13 +24,13 @@ gulp.task('minify-js', function () {
 })
 
 gulp.task('minify-browser-extension-js', function () {
-    return gulp.src('./browser-extension/doom!(*min*)*.js')
-        .pipe(terser({
-            compress: true,
-            mangle: true
-        }))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('./browser-extension/'))
+  return gulp.src('./browser-extension/doom!(*min*)*.js')
+    .pipe(terser({
+      compress: true,
+      mangle: true
+    }))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('./browser-extension/'))
 })
 
 gulp.task('package-web-extension', function () {
@@ -41,4 +41,4 @@ gulp.task('package-web-extension', function () {
     .pipe(gulp.dest('dist'))
 })
 
-gulp.task('default', gulp.series('minify-browser-extension-js','minify-css', 'minify-js'), function () {})
+gulp.task('default', gulp.series('minify-browser-extension-js', 'minify-css', 'minify-js'), function () {})
