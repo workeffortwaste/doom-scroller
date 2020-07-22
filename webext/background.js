@@ -41,7 +41,6 @@ chrome.browserAction.onClicked.addListener(function (tab) {
 
 // If the active tab domain is in the storage, then show the enabled icon.
 chrome.tabs.onActivated.addListener(function (tab) {
-  console.log(tab)
   chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
     const tabDomain = new URL(tabs[0].url).hostname
     getFromStorage('sites')
@@ -49,6 +48,24 @@ chrome.tabs.onActivated.addListener(function (tab) {
         const siteList = sites.split('\n')
         if (siteList.includes(tabDomain)) {
           chrome.browserAction.setIcon({ path: 'webext/toolbar-enabled-icon32.png', tabId: tab.tabId })
+        } else {
+          chrome.browserAction.setIcon({ path: 'webext/toolbar-icon32.png', tabId: tab.tabId })
+        }
+      })
+  })
+})
+
+chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
+  chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+    console.log(tabs[0])
+    const tabDomain = new URL(tabs[0].url).hostname
+    getFromStorage('sites')
+      .then(({ sites }) => {
+        const siteList = sites.split('\n')
+        if (siteList.includes(tabDomain)) {
+          chrome.browserAction.setIcon({ path: 'webext/toolbar-enabled-icon32.png', tabId: tab.tabId })
+        } else {
+          chrome.browserAction.setIcon({ path: 'webext/toolbar-icon32.png', tabId: tab.tabId })
         }
       })
   })
