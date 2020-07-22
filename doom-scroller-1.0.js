@@ -1,6 +1,12 @@
 window.doomScroller = window.doomScroller || []
 /* Get script location */
-window.doomScroller.location = document.currentScript.src.substring(0, document.currentScript.src.lastIndexOf('/'))
+if (chrome && chrome.runtime && chrome.runtime.getURL) {
+  window.doomScroller.location = chrome.runtime.getURL('doom-res/').replace(/\/doom-res\/$/, '')
+} else if (browser && browser.runtime && browser.runtime.getURL) {
+  window.doomScroller.location = browser.runtime.getURL('doom-res/').replace(/\/doom-res\/$/, '')
+} else {
+  window.doomScroller.location = document.currentScript.src.substring(0, document.currentScript.src.lastIndexOf('/'))
+}
 doomScroller.start = function () {
   const url = window.doomScroller.location
 
@@ -184,6 +190,21 @@ doomScroller.start = function () {
   return function () {
   }
 }
-if (doomScroller.autoStart !== false) {
+if (chrome || browser) {
+  const getFromStorage = (keys) => {
+    if (chrome.storage) {
+      return new Promise((resolve, reject) => chrome.storage.local.get(keys, resolve))
+    } else {
+      return browser.storage.local.get(keys)
+    }
+  }
+  getFromStorage()
+    .then(({sites}) => {
+      const siteList = sites.split('\n');
+      if (siteList.includes(window.location.hostname)) {
+        doomScroller.start()
+      }
+    })
+} else if (doomScroller.autoStart !== false) {
   doomScroller.start()
 }
