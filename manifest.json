@@ -15,7 +15,7 @@
         "https://*/*"
       ],
       "js": [
-        "doom-scroller-1.0.js"
+        "doom-scroller-1.0.min.js"
       ]
     }
   ],
