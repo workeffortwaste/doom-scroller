@@ -34,7 +34,7 @@ gulp.task('minify-browser-extension-js', function () {
 })
 
 gulp.task('package-web-extension', function () {
-  return gulp.src(['./browser-extension/doom-res/*', './browser-extension/res/*', './browser-extension/doom-*.js', './browser-extension/manifest.json'], {
+  return gulp.src(['./browser-extension/doom-res/*', './browser-extension/webext-res/*', './browser-extension/doom-*.js', './browser-extension/manifest.json'], {
     base: './browser-extension'
   })
     .pipe(zip('doom-scroller-web-extension.zip'))
