@@ -5,7 +5,7 @@
   "version": "1.0",
   "homepage_url": "https://github.com/workeffortwaste/doom-scroller",
   "icons": {
-    "32": "webext/icon.jpg"
+    "32": "res/icon.jpg"
   },
 
   "content_scripts": [
@@ -21,14 +21,14 @@
   ],
 
   "background": {
-  "scripts": ["webext/background.js"],
+  "scripts": ["res/background.js"],
   "persistent": true
   },
 
   "browser_action": {
     "default_title": "Doom Scroller",
     "default_icon": {
-      "32": "webext/toolbar-icon32.png"
+      "32": "res/toolbar-icon32.png"
     }
   },
 
@@ -44,6 +44,6 @@
   ],
 
   "options_ui": {
-      "page": "webext/options.html"
+      "page": "res/options.html"
   }
 }

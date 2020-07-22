@@ -31,7 +31,7 @@ chrome.browserAction.onClicked.addListener(function (tab) {
     })
 
   // Update the icon
-  chrome.browserAction.setIcon({ path: 'webext/toolbar-enabled-icon32.png', tabId: tab.tabId })
+  chrome.browserAction.setIcon({ path: 'res/toolbar-enabled-icon32.png', tabId: tab.tabId })
 
   // Inject the script
   chrome.tabs.executeScript(tab.id, {
@@ -47,9 +47,9 @@ chrome.tabs.onActivated.addListener(function (tab) {
       .then(({ sites }) => {
         const siteList = sites.split('\n')
         if (siteList.includes(tabDomain)) {
-          chrome.browserAction.setIcon({ path: 'webext/toolbar-enabled-icon32.png', tabId: tab.tabId })
+          chrome.browserAction.setIcon({ path: 'res/toolbar-enabled-icon32.png', tabId: tab.tabId })
         } else {
-          chrome.browserAction.setIcon({ path: 'webext/toolbar-icon32.png', tabId: tab.tabId })
+          chrome.browserAction.setIcon({ path: 'res/toolbar-icon32.png', tabId: tab.tabId })
         }
       })
   })
@@ -63,9 +63,9 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
       .then(({ sites }) => {
         const siteList = sites.split('\n')
         if (siteList.includes(tabDomain)) {
-          chrome.browserAction.setIcon({ path: 'webext/toolbar-enabled-icon32.png', tabId: tab.tabId })
+          chrome.browserAction.setIcon({ path: 'res/toolbar-enabled-icon32.png', tabId: tab.tabId })
         } else {
-          chrome.browserAction.setIcon({ path: 'webext/toolbar-icon32.png', tabId: tab.tabId })
+          chrome.browserAction.setIcon({ path: 'res/toolbar-icon32.png', tabId: tab.tabId })
         }
       })
   })

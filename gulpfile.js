@@ -23,12 +23,22 @@ gulp.task('minify-js', function () {
     .pipe(gulp.dest('./'))
 })
 
+gulp.task('minify-browser-extension-js', function () {
+    return gulp.src('./browser-extension/doom!(*min*)*.js')
+        .pipe(terser({
+            compress: true,
+            mangle: true
+        }))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest('./browser-extension/'))
+})
+
 gulp.task('package-web-extension', function () {
-  return gulp.src(['./doom-res/*', './webext/*', 'doom-*.js', 'manifest.json'], {
-    base: './'
+  return gulp.src(['./browser-extension/doom-res/*', './browser-extension/res/*', './browser-extension/doom-*.js', './browser-extension/manifest.json'], {
+    base: './browser-extension'
   })
     .pipe(zip('doom-scroller-web-extension.zip'))
     .pipe(gulp.dest('dist'))
 })
 
-gulp.task('default', gulp.series('minify-css', 'minify-js'), function () {})
+gulp.task('default', gulp.series('minify-browser-extension-js','minify-css', 'minify-js'), function () {})
