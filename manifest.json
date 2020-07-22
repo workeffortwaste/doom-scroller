@@ -26,7 +26,10 @@
   },
 
   "browser_action": {
-    "default_title": "Doom Scroller"
+    "default_title": "Doom Scroller",
+    "default_icon": {
+      "32": "webext/toolbar-icon32.png"
+    }
   },
 
   "web_accessible_resources": [
