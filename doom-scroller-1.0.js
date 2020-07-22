@@ -198,7 +198,7 @@ if (chrome || browser) {
       return browser.storage.local.get(keys)
     }
   }
-  getFromStorage()
+  getFromStorage('sites')
     .then(({ sites }) => {
       const siteList = sites.split('\n')
       if (siteList.includes(window.location.hostname)) {
