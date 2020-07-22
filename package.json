@@ -1,0 +1,25 @@
+{
+  "name": "doom-scroller",
+  "version": "1.0.0",
+  "description": "Adds the HUD from DOOM and slowly kills you as you scroll",
+  "main": "doom-scroller-1.0.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/workeffortwaste/doom-scroller.git"
+  },
+  "author": "Chris Johnson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/workeffortwaste/doom-scroller/issues"
+  },
+  "homepage": "https://github.com/workeffortwaste/doom-scroller#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-terser": "^1.2.0",
+    "gulp-uglifycss": "^1.1.0"
+  }
+}
