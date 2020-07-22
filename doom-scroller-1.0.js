@@ -13,7 +13,7 @@ doomScroller.start = function () {
   /* Inject the CSS into the head */
   const head = document.getElementsByTagName('head')[0]
   const style = document.createElement('link')
-  style.href = `${url}/doom-res/doom-scroller.css`
+  style.href = `${url}/doom-res/doom-scroller-1.0.css`
   style.type = 'text/css'
   style.rel = 'stylesheet'
   head.append(style)
