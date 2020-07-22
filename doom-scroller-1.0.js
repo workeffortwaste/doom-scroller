@@ -7,6 +7,7 @@ if (chrome && chrome.runtime && chrome.runtime.getURL) {
 } else {
   window.doomScroller.location = document.currentScript.src.substring(0, document.currentScript.src.lastIndexOf('/'))
 }
+
 doomScroller.start = function () {
   const url = window.doomScroller.location
 

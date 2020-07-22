@@ -22,7 +22,11 @@
 
   "background": {
   "scripts": ["webext/background.js"],
-  "persistent": false
+  "persistent": true
+  },
+
+  "browser_action": {
+    "default_title": "Doom Scroller"
   },
 
   "web_accessible_resources": [
@@ -30,7 +34,10 @@
   ],
 
   "permissions": [
-    "storage"
+    "storage",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
   ],
 
   "options_ui": {
