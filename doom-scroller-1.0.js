@@ -199,8 +199,8 @@ if (chrome || browser) {
     }
   }
   getFromStorage()
-    .then(({sites}) => {
-      const siteList = sites.split('\n');
+    .then(({ sites }) => {
+      const siteList = sites.split('\n')
       if (siteList.includes(window.location.hostname)) {
         doomScroller.start()
       }
