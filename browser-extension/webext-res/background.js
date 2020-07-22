@@ -16,7 +16,7 @@ const getFromStorage = (keys) => {
 
 chrome.runtime.onInstalled.addListener(function () {
   setToStorage({
-    sites: 'facebook.com\ntwitter.com'
+    sites: ''
   })
 })
 
