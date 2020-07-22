@@ -22,7 +22,7 @@ function saveOptions (e) {
 function restoreOptions () {
   function setCurrentChoice ({ sites }) {
     console.log(sites)
-    document.querySelector('#sites').value = sites || 'facebook.com\ntwitter.com'
+    document.querySelector('#sites').value = sites
   }
 
   getFromStorage('sites').then(setCurrentChoice)

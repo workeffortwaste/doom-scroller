@@ -20,6 +20,11 @@
     }
   ],
 
+  "background": {
+  "scripts": ["webext/background.js"],
+  "persistent": false
+  },
+
   "web_accessible_resources": [
     "doom-res/*"
   ],
