@@ -2,7 +2,7 @@
   "name": "doom-scroller",
   "version": "1.0.0",
   "description": "Adds the HUD from DOOM and slowly kills you as you scroll",
-  "main": "doom-scroller-1.0.js",
+  "main": "doom-scroller-1.1.1.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

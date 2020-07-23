@@ -35,7 +35,7 @@ chrome.browserAction.onClicked.addListener(function (tab) {
         }).then(e => {
           chrome.browserAction.setIcon({ path: 'webext-res/toolbar-enabled-icon32.png', tabId: tab.tabId })
           chrome.tabs.executeScript(tab.id, {
-            file: 'doom-scroller-1.0.min.js'
+            file: 'doom-scroller-1.1.1.min.js'
           })
         })
       } else {
@@ -76,6 +76,9 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
         const siteList = sites.split('\n')
         if (siteList.includes(tabDomain)) {
           chrome.browserAction.setIcon({ path: 'webext-res/toolbar-enabled-icon32.png', tabId: tab.tabId })
+            chrome.tabs.executeScript(tab.id, {
+                file: 'doom-scroller-1.1.1.min.js'
+            })
         } else {
           chrome.browserAction.setIcon({ path: 'webext-res/toolbar-icon32.png', tabId: tab.tabId })
         }

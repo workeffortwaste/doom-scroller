@@ -2,23 +2,11 @@
   "description": "Adds the HUD from DOOM and slowly kills you as you scroll",
   "manifest_version": 2,
   "name": "Doom Scroller",
-  "version": "1.0",
+  "version": "1.1.1",
   "homepage_url": "https://github.com/workeffortwaste/doom-scroller",
   "icons": {
     "128": "webext-res/icon.png"
   },
-
-  "content_scripts": [
-    {
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
-      "js": [
-        "doom-scroller-1.0.min.js"
-      ]
-    }
-  ],
 
   "background": {
   "scripts": ["webext-res/background.js"],
@@ -38,7 +26,7 @@
 
   "permissions": [
     "storage",
-    "tabs",
+    "activeTab",
     "http://*/*",
     "https://*/*"
   ],
